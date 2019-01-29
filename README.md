@@ -9,7 +9,17 @@ The script creates Ansible groups such as
 
 each group has only 1 IPv4 address which belongs to the VM on the libvirt network.
 
-# Examples
+I assume some use cases like "Hey, I've just created a VM using virt-intall. I know the name of the VM, the name of the network to which the VM connects, but it's too much hassle to know the IP address of the VM."
+If you are in the case, run ansible like this!
+```
+$ ansible -i libvirt_dynamic_inventory.py osp13-undercloud%default -m debug -a 'msg={{ ipv4addr }} -k'
+SSH password:
+192.168.122.223 | SUCCESS => {
+    "msg": "192.168.122.223"
+}
+```
+
+# Group Examples
 ## Case 1
 ```
 $ ansible -i libvirt_dynamic_inventory.py vm01%default -m ping
