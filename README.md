@@ -31,7 +31,7 @@ returns an IPv4 address of `eth0` on `vm01`.
 # Notes
 On RHEL/CentOS, you should take care of PolKit (a.k.a PolicyKit) to run the script as non-root user.
 
-First, create a rule file as follows (replace "ori" as your user name).
+First, create a rule file as follows (replace "ori" to your user name).
 ```
 polkit.addRule(function(action, subject) {
         if (action.id == "org.libvirt.unix.manage" &&
