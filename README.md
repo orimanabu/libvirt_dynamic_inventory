@@ -3,28 +3,28 @@ This is an Ansible dynamic inventory script for libvirt environment.
 
 This script creates Ansible groups such as
 
-- <VM_NAME>%<NETWORK_NAME>
-- <VM_NAME>%<BRIDGE_NAME>
-- <VM_NAME>%<VM_INTERFACE_NAME>
+- `VM_NAME` % `NETWORK_NAME`
+- `VM_NAME` % `BRIDGE_NAME`
+- `VM_NAME` % `VM_INTERFACE_NAME`
 
 each group has only 1 IPv4 address which belongs to the VM on the libvirt network.
 
 # Examples
 ## Case 1
 ```
-ansible -i libvirt_dynamic_inventory.py vm01%default -m ping
+$ ansible -i libvirt_dynamic_inventory.py vm01%default -m ping
 ```
 returns an IPv4 address of `vm01` on `default` network.
 
 ## Case 2
 ```
-ansible -i libvirt_dynamic_inventory.py vm01%virbr0 -m ping
+$ ansible -i libvirt_dynamic_inventory.py vm01%virbr0 -m ping
 ```
 returns an IPv4 address of `vm01` on `virbr0` bridge.
 
 ## Case 3
 ```
-ansible -i libvirt_dynamic_inventory.py vm01%eth0 -m ping
+$ ansible -i libvirt_dynamic_inventory.py vm01%eth0 -m ping
 ```
 returns an IPv4 address of `eth0` on `vm01`.
 
